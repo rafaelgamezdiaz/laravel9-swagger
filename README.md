@@ -4,13 +4,12 @@
 
 Steeps
 
-- composer require "darkaonline/l5-swagger"
+- Install composer require "darkaonline/l5-swagger"
 - open your config/app.php and add this line: L5Swagger\L5SwaggerServiceProvider::class
 - php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
 - Connect Database.
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
 - Run php artisan migrate:fresh --seed
-- Add this code to the base Controller (by default all controllers depends of Controller class, add this code to the Controller class), before the declaration of the class, changing the version, title and description as you desires.
+- Add this code to the base Controller (by default all controllers depends on Controller class, add this code to the Controller class), before the declaration of the class, changing the version, title and description as you desires.
 ```
     /**
      * @OA\OpenApi(
@@ -41,33 +40,12 @@ Steeps
      *             @OA\Property(
      *                 type="array",
      *                 property="rows",
-     *                 @OA\Items(
-     *                     type="object",
-     *                     @OA\Property(
-     *                         property="_id",
-     *                         type="number",
-     *                         example="1"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="title",
-     *                         type="string",
-     *                         example="example title"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="content",
-     *                         type="string",
-     *                         example="example content"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="updated_at",
-     *                         type="string",
-     *                         example="2021-12-11T09:25:53.000000Z"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="created_at",
-     *                         type="string",
-     *                         example="2021-12-11T09:25:53.000000Z"
-     *                     )
+     *                 @OA\Items(type="object",
+     *                     @OA\Property(property="_id", type="number", example="1"),
+     *                     @OA\Property(property="title", type="string", example="example title"),
+     *                     @OA\Property(property="content", type="string", example="example content"),
+     *                     @OA\Property(property="updated_at", type="string", example="2021-12-11T09:25:53.000000Z"),
+     *                     @OA\Property(property="created_at", type="string", example="2021-12-11T09:25:53.000000Z")
      *                 )
      *             )
      *         )
@@ -90,20 +68,15 @@ Steeps
      * @OA\Post (
      *     path="/api/todo/store",
      *     tags={"ToDo"},
+     *     description="endpoint description",
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 @OA\Property(
      *                      type="object",
-     *                      @OA\Property(
-     *                          property="title",
-     *                          type="string"
-     *                      ),
-     *                      @OA\Property(
-     *                          property="content",
-     *                          type="string"
-     *                      )
+     *                      @OA\Property(property="title", type="string"),
+     *                      @OA\Property(property="content", type="string")
      *                 ),
      *                 example={
      *                     "title":"example title",
@@ -152,16 +125,9 @@ Steeps
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 @OA\Property(
-     *                      type="object",
-     *                      @OA\Property(
-     *                          property="title",
-     *                          type="string"
-     *                      ),
-     *                      @OA\Property(
-     *                          property="content",
-     *                          type="string"
-     *                      )
+     *                 @OA\Property(type="object",
+     *                      @OA\Property(property="title", type="string"),
+     *                      @OA\Property(property="content", type="string")
      *                 ),
      *                 example={
      *                     "title":"example title",
@@ -238,31 +204,11 @@ Steeps
      *                 property="rows",
      *                 @OA\Items(
      *                     type="object",
-     *                     @OA\Property(
-     *                         property="_id",
-     *                         type="number",
-     *                         example="1"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="title",
-     *                         type="string",
-     *                         example="example title"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="content",
-     *                         type="string",
-     *                         example="example content"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="updated_at",
-     *                         type="string",
-     *                         example="2021-12-11T09:25:53.000000Z"
-     *                     ),
-     *                     @OA\Property(
-     *                         property="created_at",
-     *                         type="string",
-     *                         example="2021-12-11T09:25:53.000000Z"
-     *                     )
+     *                     @OA\Property(property="_id", type="number", example="1"),
+     *                     @OA\Property(property="title", type="string",example="example title"),
+     *                     @OA\Property(property="content", type="string", example="example content"),
+     *                     @OA\Property(property="updated_at", type="string", example="2021-12-11T09:25:53.000000Z"),
+     *                     @OA\Property(property="created_at", type="string", example="2021-12-11T09:25:53.000000Z")
      *                 )
      *             )
      *         )
